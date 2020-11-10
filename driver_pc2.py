@@ -5,17 +5,9 @@ import pyvjoy
 import time
 import re
 
+print("pc2 profile\n")
 s = serial.Serial('COM11')
 j = pyvjoy.VJoyDevice(1)
-
-def release():
-   ReleaseKey(DIK_F1)
-   ReleaseKey(DIK_F2)
-   ReleaseKey(DIK_F3)
-   ReleaseKey(DIK_F4)
-   ReleaseKey(DIK_F5)
-   ReleaseKey(DIK_F6)
-   ReleaseKey(DIK_F8)
 
 
 while True:
@@ -29,40 +21,33 @@ while True:
         j.data.wAxisXRot = 0
         j.update()
         if char == b'1\r\n':
-            release()
-            sleep(0.1)
             PressKey(DIK_F1)
             sleep(0.1)
+            ReleaseKey(DIK_F1)
         if char == b'2\r\n':
-            release()
-            sleep(0.1)
             PressKey(DIK_F2)
             sleep(0.1)
+            ReleaseKey(DIK_F2)
         if char == b'3\r\n':
-            release()
-            sleep(0.1)
             PressKey(DIK_F3)
             sleep(0.1)
+            ReleaseKey(DIK_F3)
         if char == b'4\r\n':
-            release()
-            sleep(0.1)
             PressKey(DIK_F4)
             sleep(0.1)
+            ReleaseKey(DIK_F4)
         if char == b'5\r\n':
-            release()
-            sleep(0.1)
             PressKey(DIK_F5)
             sleep(0.1)
+            ReleaseKey(DIK_F5)
         if char == b'6\r\n':
-            release()
-            sleep(0.1)
             PressKey(DIK_F6)
             sleep(0.1)
+            ReleaseKey(DIK_F6)
         if char == b'8\r\n':
-            release()
-            sleep(0.1)
             PressKey(DIK_F8)
             sleep(0.1)
+            ReleaseKey(DIK_F8)
         if "e :" in str(char):
             #print("ici", char)
             nombres = re.findall(r'\b\d+\b', str(char))
